@@ -4,6 +4,6 @@ node{
                git 'https://github.com/aearavindh/Calc.git'
          }
          stage('Compile-Build'){
-               sh '${mvnHome} clean package'
+               sh '${mvnHome} package'
          }
 }
