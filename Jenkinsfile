@@ -4,6 +4,6 @@ node{
          }
          stage('Compile-Build'){
                def mvnHome = tool name: 'Maven', type: 'maven'
-               sh '${mvnHome} package'
+               sh '${mvnHome} mvn package'
          }
 }
