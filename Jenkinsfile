@@ -1,6 +1,4 @@
-pipeline{
-        agent any
-      stages{
+node{
          stage('SCM Checkout'){
             steps{
                git 'https://github.com/aearavindh/Calc.git'
@@ -18,5 +16,4 @@ pipeline{
                sh '${mvnHome}/bin/mvn package'
             }
          }
-      }
 }
