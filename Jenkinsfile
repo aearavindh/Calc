@@ -3,7 +3,9 @@ node{
                git 'https://github.com/aearavindh/Calc.git'
          }
          stage('Compile-Build'){
-               def mvnHome = tool name: 'Maven', type: 'maven'
-               sh '${mvnHome} mvn package'
+               def mvn_version = 'Maven'
+               withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+               sh 'mvn clean package'
+               }
          }
 }
