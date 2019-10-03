@@ -9,7 +9,6 @@ node{
                }
          }
          stage('SonarQube Analysis'){
-               agent any
                steps{
                      withSonarQubeEnv('sonarqube'){
                            sh 'mvn clean package sonar:sonar'
