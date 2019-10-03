@@ -3,11 +3,6 @@ node{
          stage('SCM Checkout'){
                git 'https://github.com/aearavindh/Calc.git'
          }
-         stage('Test'){
-               withEnv( ["PATH+MAVEN=${tool mvnHome}/bin"] ) {
-               sh 'mvn test'
-               }
-         }
          stage('Compile-Build'){
                withEnv( ["PATH+MAVEN=${tool mvnHome}/bin"] ) {
                sh 'mvn clean package'
