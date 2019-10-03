@@ -15,7 +15,7 @@ pipeline{
          stage('Configure-Build'){
             steps{
                def mvnHome = too name: 'Maven', type: 'maven'
-               sh '${mvnHome}/bin/mvn test'
+               sh '${mvnHome}/bin/mvn package'
             }
          }
       }
