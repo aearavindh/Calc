@@ -8,13 +8,13 @@ pipeline{
          }
          stage('Test'){
             steps{
-               def mvnHome = too name: 'Maven', type: 'maven'
+               def mvnHome = tool name: 'Maven', type: 'maven'
                sh '${mvnHome}/bin/mvn test'
             }
          }
          stage('Configure-Build'){
             steps{
-               def mvnHome = too name: 'Maven', type: 'maven'
+               def mvnHome = tool name: 'Maven', type: 'maven'
                sh '${mvnHome}/bin/mvn package'
             }
          }
