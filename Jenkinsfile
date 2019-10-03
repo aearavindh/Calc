@@ -10,7 +10,7 @@ node{
          }
          stage('SonarQube Analysis'){
                      withSonarQubeEnv('sonarqube'){
-                           sh 'mvn clean package sonar:sonar'
+                           sh 'sonar:sonar'
                }
          }
 }
