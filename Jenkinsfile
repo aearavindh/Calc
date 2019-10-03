@@ -1,7 +1,6 @@
 node{
       def mvnHome = 'Maven'
       environment {
-        NEXUS_VERSION = "nexus2"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "http://ec2-18-224-155-110.us-east-2.compute.amazonaws.com:8081/nexus/"
         NEXUS_REPOSITORY = "devopstraining"
