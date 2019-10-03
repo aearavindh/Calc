@@ -3,6 +3,7 @@
   <groupId>com.aea</groupId>
   <artifactId>Calc</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
   <name>Calc</name>
   <description>Calculator application</description>
   <build>
