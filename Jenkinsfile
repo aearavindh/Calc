@@ -9,10 +9,8 @@ node{
                }
          }
          stage('SonarQube Analysis'){
-               steps{
                      withSonarQubeEnv('sonarqube'){
                            sh 'mvn clean package sonar:sonar'
-                     }
                }
          }
 }
