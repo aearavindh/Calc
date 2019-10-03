@@ -1,10 +1,11 @@
 node{
       def mvnHome = 'Maven'
       environment {
-        NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "http://ec2-18-224-155-110.us-east-2.compute.amazonaws.com:8081/nexus/"
-        NEXUS_REPOSITORY = "devopstraining"
-        NEXUS_CREDENTIAL_ID = "nexus-credentials"
+        def NEXUS_VERSION = "nexus2"
+        def NEXUS_PROTOCOL = "http"
+        def NEXUS_URL = "http://ec2-18-224-155-110.us-east-2.compute.amazonaws.com:8081/nexus/"
+        def NEXUS_REPOSITORY = "devopstraining"
+        def NEXUS_CREDENTIAL_ID = "nexus-credentials"
     }
          stage('SCM Checkout'){
                git 'https://github.com/aearavindh/Calc.git'
