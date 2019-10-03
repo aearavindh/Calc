@@ -5,7 +5,7 @@ node{
         def NEXUS_PROTOCOL = "http"
         def NEXUS_URL = "http://ec2-18-224-155-110.us-east-2.compute.amazonaws.com:8081/nexus/"
         def NEXUS_REPOSITORY = "devopstraining"
-        def NEXUS_CREDENTIAL_ID = "nexus-credentials"
+        def NEXUS_CREDENTIAL_ID = "nexus-credentialss"
     }
          stage('SCM Checkout'){
                git 'https://github.com/aearavindh/Calc.git'
