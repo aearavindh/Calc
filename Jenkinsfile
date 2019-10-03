@@ -10,9 +10,7 @@ node{
          }
          stage('SonarQube Analysis'){
                withEnv( ["PATH+MAVEN=${tool mvnHome}/bin"] ) {
-                     withSonarQubeEnv('sonarqube'){
-                           sh 'mvn sonar:sonar'
-                     }
+                           sh 'sonarqube mvn sonar:sonar'
                }
          }
 }
