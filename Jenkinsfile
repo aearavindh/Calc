@@ -2,10 +2,14 @@ pipeline{
   agent any
      stages{
        stage('Compile-Build'){
-         sh 'mvn clean package'
+         steps{
+            sh 'mvn clean package'
+         }
        }
        stage('SonarQube Analysis'){
-         sh 'mvn sonar:sonar'
+         steps{
+            sh 'mvn sonar:sonar'
+         }
        }
      }
 }
