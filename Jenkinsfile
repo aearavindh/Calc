@@ -4,6 +4,6 @@ node{
                sh '${mvnHome} clean test'
          }
          stage('Configure-Build'){
-                  sh '${mvnHome} package'
+               sh '${mvnHome} package'
          }
 }
