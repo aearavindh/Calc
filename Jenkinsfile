@@ -5,12 +5,12 @@ node{
          }
          stage('Test'){
                withEnv( ["PATH+MAVEN=${tool mvnHome}/bin"] ) {
-               sh 'mvn clean test'
+               sh 'mvn test'
                }
          }
          stage('Compile-Build'){
                withEnv( ["PATH+MAVEN=${tool mvnHome}/bin"] ) {
-               sh 'mvn package'
+               sh 'mvn clean package'
                }
          }
 }
