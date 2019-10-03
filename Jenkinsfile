@@ -1,9 +1,9 @@
 node{
     def mvnHome = tool (name: 'Maven', type: 'maven') + '/bin/mvn'
-         stage('Test'){
-               sh '${mvnHome} clean test'
+         stage('SCM Checkout'){
+               git ''
          }
-         stage('Configure-Build'){
-               sh '${mvnHome} package'
+         stage('Compile-Build'){
+               sh '${mvnHome} clean package'
          }
 }
