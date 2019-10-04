@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>comrades.aea</groupId>
   <artifactId>Calc</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>CALC-1.0</version>
   <packaging>jar</packaging>
   <name>Calc</name>
   <description>Calculator application</description>
