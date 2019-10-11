@@ -18,11 +18,11 @@ environment{
         }
  stage('Publish to Nexus'){
             steps{
-                //nexusArtifactUploader artifacts: [[artifactId: 'Calc', classifier: '', file: 'pom.xml', type: 'jar']], credentialsId: 'nexus-credentialss', groupId: 'comrades.aea', nexusUrl: '18.224.155.110:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'devopstraining', version: 'CALC-1.0'
+                nexusArtifactUploader artifacts: [[artifactId: 'Calc', classifier: '', file: 'pom.xml', type: 'jar']], credentialsId: 'nexus-credentialss', groupId: 'comrades.aea', nexusUrl: '18.224.155.110:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'devopstraining', version: 'CALC-1.0'
                 script{
                     pom = readMavenPom file: "pom.xml";
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
-                    echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
+                    echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}";
                     artifactPath = filesByGlob[0].path;
                     artifactExists = fileExists artifactPath;
                     if(artifactExists) {
