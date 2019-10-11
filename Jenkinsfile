@@ -3,12 +3,12 @@ pipeline {
     tools {
         maven "Maven"   
     }
-    environment{
+environment{
         NEXUS_VERSION="nexus2"
         NEXUS_PROTOCOL="http"
         NEXUS_URL="18.224.155.110:8081/nexus"
         NEXUS_REPOSITORY="devopstraining"
-        NEXUS_CREDENTIAL_ID="nexus-credentials"
+        NEXUS_CREDENTIAL_ID="nexus-credentials"*/
     }
     stages {
         stage('Compile-Build-Test') {
@@ -16,13 +16,13 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        stage('Publish to Nexus'){
+ stage('Publish to Nexus'){
             steps{
                 //nexusArtifactUploader artifacts: [[artifactId: 'Calc', classifier: '', file: 'pom.xml', type: 'jar']], credentialsId: 'nexus-credentialss', groupId: 'comrades.aea', nexusUrl: '18.224.155.110:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'devopstraining', version: 'CALC-1.0'
                 script{
                     pom = readMavenPom file: "pom.xml";
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
-                    echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}";
+                    echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     artifactPath = filesByGlob[0].path;
                     artifactExists = fileExists artifactPath;
                     if(artifactExists) {
