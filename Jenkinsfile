@@ -8,7 +8,7 @@ environment{
         NEXUS_PROTOCOL="http"
         NEXUS_URL="18.224.155.110:8081/nexus"
         NEXUS_REPOSITORY="devopstraining"
-        NEXUS_CREDENTIAL_ID="nexus-credentials"*/
+        NEXUS_CREDENTIAL_ID="nexus-credentials"
     }
     stages {
         stage('Compile-Build-Test') {
