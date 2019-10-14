@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment{
-        NEXUS_CRED = credentials('nexus-credentialss')
-    }
     tools {
         maven "Maven"   
     }
