@@ -4,7 +4,7 @@ pipeline {
         maven "Maven"   
     }
     environment{
-        NEXUS = $NEXUS
+        NEXUS = 'NEXUS'
     }
     stages {
         stage('Compile-Build-Test') {
