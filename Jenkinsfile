@@ -14,7 +14,8 @@ pipeline {
         }
         stage('Publish to Nexus'){
             steps{
-                curl -v -F r=devopstraining -F hasPom=true -F e=war -F g=comrades.aea -F a=Calc -F v=5.0 -F c=ArithmeticCalculator -F p=war -F file=@./target/Calc-CALC-1.0.war -u $NEXUS_CRED http://18.224.155.110:8081/nexus
+                //curl -v -F r=devopstraining -F hasPom=true -F e=war -F g=comrades.aea -F a=Calc -F v=5.0 -F c=ArithmeticCalculator -F p=war -F file=@./target/Calc-CALC-1.0.war -u $NEXUS_CRED http://18.224.155.110:8081/nexus
+                curl --upload-file **/target/*.war -u $NEXUS_CRED -v http://18.224.155.110:8081/nexus
             }
         }
     }
