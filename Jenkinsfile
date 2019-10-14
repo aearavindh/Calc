@@ -16,7 +16,14 @@ pipeline {
                 //sh 'curl -u ${username}:${password} --upload-file target/Calc-CALC-1.0.jar http://18.224.155.110:8081/nexus/content/repositories/devopstraining/comrades/Calc.jar'
                 sh 'curl -F file=@target/Calc-CALC-1.0.jar -u ${username}:${password} http://18.224.155.110:8081/nexus/content/repositories/devopstraining/comrades/Calc.jar'
                 }
-        } 
+            } 
+       }
+       stage('Publish to Nexus'){
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'tomcatCredentials', passwordVariable: 'password', usernameVariable: 'username')]){
+                    sh 'curl -v -u ${username}:${password} -T Calc-CALC-1.0.jar 'http://3.15.0.139:8088/manager/text/deploy?path=//CALC'
+                }
+            } 
        }
    }
 }
