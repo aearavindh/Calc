@@ -12,7 +12,7 @@ pipeline {
         stage('Sonarqube Analysis'){
             steps{
                 withSonarQubeEnv('sonarqube'){
-                    sh 'sonar-scanner -Dproject.settings=./sonar-project.properties'
+                    sh 'bin/sonar-scanner -Dproject.settings=./sonar-project.properties'
                 }
             }
         }
