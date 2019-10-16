@@ -14,7 +14,9 @@ pipeline {
         }
         stage('Sonarqube Analysis'){
             steps{
-                sh '${sonarscanner}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties'
+                withSonarQubeEnv('sonarqube'){
+                     sh '${sonarscanner}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties'
+                }
             }
         }
         stage('Publish to Nexus'){
