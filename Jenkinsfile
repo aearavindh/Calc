@@ -9,6 +9,13 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('Sonarqube Analysis'){
+            steps{
+                withSonarQubeEnv('sonarqube'){
+                    sh 'sonar-scanner -Dproject.settings=./sonar-project.properties'
+                }
+            }
+        }
         stage('Publish to Nexus'){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'nexus-credentialss', passwordVariable: 'password', usernameVariable: 'username'),string(credentialsId: 'NEXUS_URL', variable: 'nexus_url')]){
