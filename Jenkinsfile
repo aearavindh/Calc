@@ -31,7 +31,7 @@ pipeline {
        stage('Deploy to Tomcat'){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'tomcatCredentials', passwordVariable: 'password', usernameVariable: 'username'),string(credentialsId: 'TOMCAT_URL', variable: 'tomcat_url')]){
-                    sh 'curl http://${tomcat_url}/manager/text/undeploy?path=/CALC -u ${username}:${password}'
+                    //sh 'curl http://${tomcat_url}/manager/text/undeploy?path=/CALC -u ${username}:${password}'
                     sh 'curl -v -u ${username}:${password} -T target/Calc-${BUILD_NUMBER}.jar http://${tomcat_url}/manager/text/deploy?path=/CALC'
                 }
             } 
