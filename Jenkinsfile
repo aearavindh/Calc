@@ -1,7 +1,8 @@
 pipeline {
     agent any
     tools {
-        maven "Maven"   
+        maven "Maven"  
+        tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
     }
     stages {
         stage('Compile-Build-Test') {
@@ -11,9 +12,7 @@ pipeline {
         }
         stage('Sonarqube Analysis'){
             steps{
-                withSonarQubeEnv('SonarScanner'){
                     sh 'sonar-scanner -Dproject.settings=./sonar-project.properties'
-                }
             }
         }
         stage('Publish to Nexus'){
