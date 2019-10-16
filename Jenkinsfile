@@ -3,6 +3,9 @@ pipeline {
     tools {
         maven "Maven"  
     }
+    environment{
+        sonarscanner = tool 'SonarScanner'
+    }
     stages {
         stage('Compile-Build-Test') {
             steps {
@@ -10,11 +13,8 @@ pipeline {
             }
         }
         stage('Sonarqube Analysis'){
-            environment{
-                    sonarscanner = tool 'SonarScanner'
-            }
             steps{
-                    sh 'sonar-scanner -Dproject.settings=./sonar-project.properties'
+                sh '${sonarscanner}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties'
             }
         }
         stage('Publish to Nexus'){
