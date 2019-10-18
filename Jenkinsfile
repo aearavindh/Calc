@@ -19,13 +19,6 @@ pipeline {
                 }
             }
         }
-        stage("Quality Gate") {
-            steps {
-              timeout(time: 3, unit: 'MINUTES') {
-                waitForQualityGate abortPipeline: true
-              }
-            }
-        }
         stage('Publish to Nexus'){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'nexus-credentialss', passwordVariable: 'password', usernameVariable: 'username'),string(credentialsId: 'NEXUS_URL', variable: 'nexus_url')]){
